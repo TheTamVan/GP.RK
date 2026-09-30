@@ -210,7 +210,7 @@ inputLinkElement.addEventListener("input", () => {
     // Check if input is pure ASCII - potentially unreliable?
     const useEmoji = Array.from(payload).some(c => !outputAlphabetASCII.includes(c));
     alphabet = useEmoji ? outputAlphabetEmoji : outputAlphabetASCII;
-  } else {
+  } else if(decodeURIComponent(window.location.pathname.slice(1)).startsWith(`${repo}/`)&&decodeURIComponent(window.location.pathname.slice(1)).length>6){
     // If no hash value, we're likely reading a QR code
     // For that, use the path instead
     payload = decodeURIComponent(window.location.pathname.slice(1));
