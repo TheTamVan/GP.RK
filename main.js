@@ -135,7 +135,7 @@ function updateOutput () {
       qrCodeCorrectionLevelContainer.style.display = "inline";
 
       const qrCodeDomain = domain.toUpperCase();
-      const qrCodeLink = `HTTP://${qrCodeDomain}/${compress(input, outputAlphabetQR)}`;
+      const qrCodeLink = `http://${domain}/${repo}/${compress(input, outputAlphabetQR)}`;
 
       const errorCorrection = correctionLevels[qrCodeCorrectionLevelElement.value];
 
@@ -213,7 +213,7 @@ inputLinkElement.addEventListener("input", () => {
   } else {
     // If no hash value, we're likely reading a QR code
     // For that, use the path instead
-    payload = decodeURIComponent(window.location.pathname.slice(1));
+    payload = decodeURIComponent(window.location.pathname.slice(6));
     alphabet = outputAlphabetQR;
   }
 
