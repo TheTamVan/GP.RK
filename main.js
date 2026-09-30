@@ -135,7 +135,7 @@ function updateOutput () {
       qrCodeCorrectionLevelContainer.style.display = "inline";
 
       const qrCodeDomain = domain.toUpperCase();
-      const qrCodeLink = `http://${domain}/${repo}/${compress(input, outputAlphabetQR)}`;
+      const qrCodeLink = `HTTP://${qrCodeDomain}/${repo}/${compress(input, outputAlphabetQR)}`;
 
       const errorCorrection = correctionLevels[qrCodeCorrectionLevelElement.value];
 
