@@ -4,7 +4,7 @@ import {
   outputAlphabetQR,
   outputAlphabetEmoji
 } from "./alphabets.js";
-
+const repo = "gp.rk"
 let qrGenerate, qrMode, qrCorrection;
 
 let domain = window.location.hostname;
@@ -114,8 +114,8 @@ function updateOutput () {
       outputRatioElement.textContent = "Output is the same length as the input";
       outputRatioElement.style.color = "gray";
     }
-    outputLinkElement.textContent = `http://${domain}#${output}`;
-    outputLinkElement.href = `http://${domain}#${output}`;
+    outputLinkElement.textContent = `http://${domain}/${repo}#${output}`;
+    outputLinkElement.href = `http://${domain}/${repo}#${output}`;
     outputLinkElement.style.color = "";
     if (settings.qr) {
       // Lazyload the qr generator to avoid loading it on a redirect
@@ -135,7 +135,8 @@ function updateOutput () {
       qrCodeCorrectionLevelContainer.style.display = "inline";
 
       const qrCodeDomain = domain.toUpperCase();
-      const qrCodeLink = `HTTP://${qrCodeDomain}/${compress(input, outputAlphabetQR)}`;
+      const qrCodeRepo = repo.toUpperCase();
+      const qrCodeLink = `HTTP://${qrCodeDomain}/${qrCodeRepo}${compress(input, outputAlphabetQR)}`;
 
       const errorCorrection = correctionLevels[qrCodeCorrectionLevelElement.value];
 
