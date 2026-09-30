@@ -213,7 +213,12 @@ inputLinkElement.addEventListener("input", () => {
   } else {
     // If no hash value, we're likely reading a QR code
     // For that, use the path instead
-    payload = decodeURIComponent(window.location.pathname.slice(6));
+    payload = decodeURIComponent(window.location.pathname.slice(1));
+
+    const repoPath = `${repo}/`;
+    if (payload.startsWith(repoPath)) {
+      payload = payload.slice(repoPath.length);
+    }
     alphabet = outputAlphabetQR;
   }
 
