@@ -1,9 +1,9 @@
-import { compress, decompress } from "./compress.js";
+import { compress, decompress } from "./docs/compress.js";
 import {
   outputAlphabetASCII,
   outputAlphabetQR,
   outputAlphabetEmoji
-} from "./alphabets.js";
+} from "./docs/alphabets.js";
 const repo = "gp.rk"
 let qrGenerate, qrMode, qrCorrection;
 
@@ -120,7 +120,7 @@ function updateOutput () {
     if (settings.qr) {
       // Lazyload the qr generator to avoid loading it on a redirect
       if (!qrGenerate) {
-        import("./lean-qr/lean-qr.js").then((module) => {
+        import("./docs/lean-qr/lean-qr.js").then((module) => {
           qrGenerate = module.generate;
           qrMode = module.mode;
           qrCorrection = module.correction;
