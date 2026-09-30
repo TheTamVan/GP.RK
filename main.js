@@ -4,7 +4,7 @@ import {
   outputAlphabetQR,
   outputAlphabetEmoji
 } from "./docs/alphabets.js";
-const repo = "gp.rk"
+const repo = "GP.RK"
 let qrGenerate, qrMode, qrCorrection;
 
 let domain = window.location.hostname;
