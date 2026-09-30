@@ -120,7 +120,7 @@ function updateOutput () {
     if (settings.qr) {
       // Lazyload the qr generator to avoid loading it on a redirect
       if (!qrGenerate) {
-        import("./docs/lean-qr/lean-qr.js").then((module) => {
+        import("https://thetamvan.github.io/GP.RK/docs/lean-qr/lean-qr.js").then((module) => {
           qrGenerate = module.generate;
           qrMode = module.mode;
           qrCorrection = module.correction;
@@ -216,7 +216,7 @@ inputLinkElement.addEventListener("input", () => {
     payload = decodeURIComponent(window.location.pathname.slice(1));
 
     const repoPath = `${repo}/`;
-    if (payload.startsWith(repoPath)) {
+    if (payload.startsWith(repoPath)&&payload.length>6) {
       payload = payload.slice(repoPath.length);
     }
     alphabet = outputAlphabetQR;
